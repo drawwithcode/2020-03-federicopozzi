@@ -37,7 +37,7 @@ function setup() {
   //title
   push();
   var myText = "Wanna be like Mozart?";
-  textFont("Titillium Web");
+
   textAlign(CENTER);
   textSize(50);
   fill(0);
@@ -52,30 +52,26 @@ function setup() {
 }
 
 function draw() {
-  // if (mouseX < width / 7) {
-  //
-  //   if (mi1.isPlaying() == false) {
-  //     mi1.play();
-  //     re1.stop();
-  //   }
-  // } else if (mouseX < width / 6 && mouseX > width / 7) {
-  //   if (re1.isPlaying() == false) {
-  //     re1.play();
-  //     mi1.stop();
-  //   }
-  //
-  // }
-  //
+
 
   for (let i = 0; i < tasti.length; i++) {
     let t = tasti[i];
     t.run();
   }
 
-  push();
-  imageMode(CENTER);
-  image(img, width / 2, 200, 200, 200);
-  pop();
+var rotazione;
+
+  translate(width/2, height/4);
+  rotate(radians(rotazione));
+
+  var ruotami = 0;
+  ruotami = ruotami + 0.5;
+
+
+    push();
+    rotate(ruotami*(frameCount/80));
+    image(img, -100, -100, 200, 200);
+    pop();
 
 }
 
@@ -99,6 +95,7 @@ function mousePressed() {
     let i = floor(mouseX / w_tasto);
     let tasto = tasti[i];
     tasto.suona();
+
   }
 
 
