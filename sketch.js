@@ -36,7 +36,7 @@ function setup() {
   w_tasto = width / 7;
   h_tasto = height - height / 2;
 
-  background("#F8F4E3")
+
   //title
 
 
@@ -48,26 +48,20 @@ function setup() {
 }
 
 function draw() {
-
+  background("#F8F4E3")
   push();
-  var myText = "Wanna be like Mozart?";
+  let myText1 = "Wanna be like Mozart?";
+  let myText2 = "Just play with your keyboard!";
+
   textFont("Work Sans");
   textAlign(CENTER);
 
   textSize(35);
   fill(0);
-  text(myText, windowWidth / 2, height * 0.1);
+  text(myText1, windowWidth / 2, height * 0.1);
+  text(myText2, windowWidth / 2, height * 0.45);
   pop();
 
-  push();
-  var myText = "Just play with your keyboard!";
-  textFont("Work Sans");
-  textAlign(CENTER);
-  textFont("Work Sans");
-  textSize(35);
-  fill(0);
-  text(myText, windowWidth / 2, height * 0.45);
-  pop();
 
   for (let i = 0; i < tasti.length; i++) {
     let t = tasti[i];
