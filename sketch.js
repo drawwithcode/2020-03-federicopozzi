@@ -34,8 +34,9 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   w_tasto = width / 7;
-  h_tasto = height - 400;
+  h_tasto = height - height / 2;
 
+  background("#F8F4E3")
   //title
 
 
@@ -50,10 +51,22 @@ function draw() {
 
   push();
   var myText = "Wanna be like Mozart?";
+  textFont("Work Sans");
   textAlign(CENTER);
-  textSize(50);
+
+  textSize(35);
   fill(0);
-  text(myText, windowWidth / 2, height*0.1);
+  text(myText, windowWidth / 2, height * 0.1);
+  pop();
+
+  push();
+  var myText = "Just play with your keyboard!";
+  textFont("Work Sans");
+  textAlign(CENTER);
+  textFont("Work Sans");
+  textSize(35);
+  fill(0);
+  text(myText, windowWidth / 2, height * 0.45);
   pop();
 
   for (let i = 0; i < tasti.length; i++) {
@@ -88,16 +101,17 @@ class Tasto {
 
   run() {
     push();
-    translate(this.nota * w_tasto, 400);
+    translate(this.nota * w_tasto, height / 2);
     if (this.nota % 2) {
-      this.isPressed()?fill("black"):fill("peachpuff");
+      this.isPressed() ? fill("#B2B1B1") : fill("#DDDAD9");
     } else {
-        this.isPressed()?fill("black"):fill("olive");
+      this.isPressed() ? fill("#A2A392") : fill("#CECEC4");
     }
 
 
     noStroke();
     rect(0, 0, w_tasto, h_tasto);
+    textFont("Work Sans");
     textSize(20);
     fill(0);
     text(this.text.toUpperCase(), w_tasto / 2, h_tasto / 2);
@@ -114,7 +128,7 @@ class Tasto {
 }
 
 function mousePressed() {
-  if (mouseY > 400) {
+  if (mouseY > height / 2.5) {
     let i = floor(mouseX / w_tasto);
     let tasto = tasti[i];
     tasto.suona();
@@ -140,5 +154,5 @@ function keyPressed() {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   w_tasto = width / 7;
-  h_tasto = height - 400;
+  h_tasto = height - height / 2;
 }
