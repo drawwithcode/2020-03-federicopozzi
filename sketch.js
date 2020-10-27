@@ -100,3 +100,9 @@ function mousePressed() {
 
 
 }
+
+function windowResized(){
+resizeCanvas(windowWidth,windowHeight);
+w_tasto = width / 7;
+h_tasto = height - 400;
+}
